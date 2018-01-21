@@ -1,5 +1,5 @@
 pipeline {
-  agent {
+  agent { label 'linux'
     docker{
       image 'maven:alpine'
       args '--network=ci_attachable'
