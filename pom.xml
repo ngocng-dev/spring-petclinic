@@ -11,9 +11,7 @@
     <version>1.5.4.RELEASE</version>
   </parent>
     
-  <name>Dependency-Check for SonarQube</name>
-  <description>Integrates Dependency-Check reports into SonarQube</description>
-  <inceptionYear>2015</inceptionYear>
+  <name>Testing for SonarQube</name>
    
   <properties>
     <!-- Generic properties -->
