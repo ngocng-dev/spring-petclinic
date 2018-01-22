@@ -4,12 +4,17 @@
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic</artifactId>
   <version>1.5.1-SNAPSHOT</version>
+    
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>1.5.4.RELEASE</version>
   </parent>
-  <name>petclinic</name>
+    
+  <name>Dependency-Check for SonarQube</name>
+  <description>Integrates Dependency-Check reports into SonarQube</description>
+  <inceptionYear>2015</inceptionYear>
+   
   <properties>
     <!-- Generic properties -->
     <java.version>1.8</java.version>
