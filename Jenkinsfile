@@ -32,7 +32,7 @@ pipeline {
     }
     stage('OWASP Security Check') {
       steps {
-        sh 'mvn --settings /maven/settings-docker.xml org.owasp:dependency-check-maven:3.0.1:aggregate'
+        sh 'mvn --settings /maven/settings-docker.xml org.owasp:dependency-check-maven:alpine:aggregate'
       }
     }
     stage("Deploy to Nexus") {
