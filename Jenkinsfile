@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'agent-linux'
+  agent {
     docker{
       image 'maven:alpine'
       args '--network=ci_attachable'
@@ -30,7 +30,12 @@ pipeline {
         sh 'mvn --settings /maven/settings-docker.xml sonar:sonar'
       }
     }
-      stage("Deploy to Nexus") {
+    stage('OWASP Security Check') {
+      steps {
+        sh 'mvn --settings /maven/settings-docker.xml org.owasp:dependency-check-maven:3.0.1:aggregate'
+      }
+    }
+    stage("Deploy to Nexus") {
         steps {
           sh 'mvn -DskipTests=true --settings /maven/settings-docker.xml deploy'
         }
