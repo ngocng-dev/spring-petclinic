@@ -20,21 +20,21 @@ pipeline {
         sh 'mvn -DskipTests=true --settings /maven/settings-docker.xml clean package'
       }
     }
-      stage("Test") {
-        steps {
-          sh 'mvn -Dmaven.test.failure.ignore=true --settings /maven/settings-docker.xml test'
-        }
-      }
-    stage('Quality Gates') {
-      steps {
-        sh 'mvn --settings /maven/settings-docker.xml sonar:sonar'
-      }
+    stage("Test") {
+       steps {
+         sh 'mvn -Dmaven.test.failure.ignore=true --settings /maven/settings-docker.xml test'
+       }
     }
     stage('OWASP Security Check') {
       steps {
         sh 'mvn --settings /maven/settings-docker.xml org.owasp:dependency-check-maven:check'
       }
     }
+    stage('Quality Gates') {
+      steps {
+        sh 'mvn --settings /maven/settings-docker.xml sonar:sonar'
+      }
+    }    
     stage("Deploy to Nexus") {
         steps {
           sh 'mvn -DskipTests=true --settings /maven/settings-docker.xml deploy'
